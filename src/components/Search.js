@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getTweets } from "../API";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
@@ -52,32 +53,34 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function SearchBar() {
-  const classes = useStyles();
+export default function SearchBar(props) {
+	const classes = useStyles();
 
-  const [searchValue, setSearchValue] = useState();
-  const [messages, setMessages] = useState([]);
+	const [searchValue, setSearchValue] = useState("");
+	const [messages, setMessages] = useState([]);
 
-  const handleOnChange = e => {
-    let val = e.target.value;
-    setSearchValue(val);
-  }
+	//   console.log(messages);
 
-  const handleSearch = () => {
-    makeApiCall(searchValue);
-  }
-  
-  const makeApiCall = input => {
-    let url = `https://api.stocktwits.com/api/2/streams/symbols.json?access_token=${process.env.TOKEN}&symbols=${input}`;
-      fetch(url)
-        .then(res => {
-          return res.json();
-        })
-        .then(jsonData => {
-          console.log('firing')
-          setMessages(jsonData.messages)
-        })
-  }
+	const handleOnChange = (e) => {
+		let val = e.target.value;
+		setSearchValue(val);
+	};
+
+	const handleSearch = () => {
+		makeApiCall(searchValue);
+	};
+
+	const makeApiCall = (input) => {
+		getTweets(input).then((res) => {
+			setMessages(res);
+			console.log(messages);
+		});
+		// 	res => {
+		//     if(res.Response === 'True') {
+		// 	    console.log("makeAPICall",res);
+		//     //   setMessages(res);
+		//     };
+	};
 
 	return (
 		<div className={classes.root}>
@@ -104,19 +107,12 @@ export default function SearchBar() {
 					</div>
 				</Toolbar>
 			</AppBar>
-      <div>
-        {messages ? (
-          <div>
-            {messages.map((message, index) => (
-              <div key={index}>
-                <p>{message}</p>
-              </div>
-            ))}
-          </div>  
-        ) : (
-          <p>Nothing</p>
-        )}
-      </div>
+			<div>
+				{messages ?
+					messages.map((message, index) =>
+						<p key={index}>{message}</p>
+					) : null}
+			</div>
 		</div>
 	);
 }
