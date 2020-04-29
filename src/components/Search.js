@@ -73,9 +73,10 @@ export default function SearchBar(props) {
 			getTweets(input)
 				.then(res => res.json())
 				.then(res => {
-					setMessages(res.messages);
+					props.populateMessages(res.messages);
 				});
-		} else console.log('NoResponse');
+		} else 
+			alert('I am sorry, but your search had no results.');
 	};
 
 	return (
@@ -103,12 +104,7 @@ export default function SearchBar(props) {
 					</div>
 				</Toolbar>
 			</AppBar>
-			<div>
-				{messages ?
-					messages.map((message, index) =>
-				<p key={index}>{message.body}</p>
-					) : null}
-			</div>
+			{handleSearch}
 		</div>
 	);
 }
