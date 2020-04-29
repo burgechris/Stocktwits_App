@@ -59,8 +59,6 @@ export default function SearchBar(props) {
 	const [searchValue, setSearchValue] = useState("");
 	const [messages, setMessages] = useState([]);
 
-	//   console.log(messages);
-
 	const handleOnChange = (e) => {
 		let val = e.target.value;
 		setSearchValue(val);
@@ -70,16 +68,14 @@ export default function SearchBar(props) {
 		makeApiCall(searchValue);
 	};
 
-	const makeApiCall = (input) => {
-		getTweets(input).then((res) => {
-			setMessages(res);
-			console.log(messages);
-		});
-		// 	res => {
-		//     if(res.Response === 'True') {
-		// 	    console.log("makeAPICall",res);
-		//     //   setMessages(res);
-		//     };
+	const makeApiCall = input => {
+		if (input !== null && input !== "") {
+			getTweets(input)
+				.then(res => res.json())
+				.then(res => {
+					setMessages(res.messages);
+				});
+		} else console.log('NoResponse');
 	};
 
 	return (
@@ -110,7 +106,7 @@ export default function SearchBar(props) {
 			<div>
 				{messages ?
 					messages.map((message, index) =>
-						<p key={index}>{message}</p>
+				<p key={index}>{message.body}</p>
 					) : null}
 			</div>
 		</div>
