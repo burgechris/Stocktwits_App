@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Search from './Search';
+import TweetList from './TweetList';
 
 export default function Home() {
   const [tweets, setTweets] = useState([]);
@@ -10,15 +11,15 @@ export default function Home() {
 
   return (
     <div>
-      <div>
         <Search populateMessages={populateMessages}/>
-      </div>
-      <div>
-        {tweets ?
-          tweets.map((message, index) =>
-            <p key={index}>{message.body}</p>
-          ) : null}
-      </div>
+       {<TweetList tweets={tweets} />}
     </div>
   )
 }
+
+{/* <div>
+  {tweets ?
+    tweets.map((message, index) =>
+      <p key={index}>{message.body}</p>
+    ) : null}
+</div> */}

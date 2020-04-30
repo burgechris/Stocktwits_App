@@ -57,7 +57,7 @@ export default function SearchBar(props) {
 	const classes = useStyles();
 
 	const [searchValue, setSearchValue] = useState("");
-	const [messages, setMessages] = useState([]);
+	// const [messages, setMessages] = useState([]);
 
 	const handleOnChange = (e) => {
 		let val = e.target.value;
