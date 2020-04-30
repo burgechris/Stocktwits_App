@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TweetItem(props) {
   const classes = useStyles();
-  const { name, avatar, tweet, symbol, timestamp } = props;
+  const { name, avatar, tweet, timestamp } = props;
 
   return (
     <div>
@@ -51,7 +51,7 @@ export default function TweetItem(props) {
           }
         />
         <Typography variant="body2" >
-          {symbol}
+          {timestamp}
         </Typography>
       </ListItem>
       <Divider variant="inset" component="li" />

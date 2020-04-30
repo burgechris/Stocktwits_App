@@ -1,11 +1,19 @@
-import React from 'react';
-import Home from './components/Home';
+import React, { useState } from "react";
+import Search from './components/Search';
+import TweetList from './components/TweetList';
 import './App.css';
 
 function App() {
+  const [tweets, setTweets] = useState([]);
+
+  const populateMessages = results => {
+    setTweets(results);
+  };
+
   return (
-    <div className="App">
-      <Home />
+    <div>
+      <Search populateMessages={populateMessages} />
+      {<TweetList tweets={tweets} />}
     </div>
   );
 }
