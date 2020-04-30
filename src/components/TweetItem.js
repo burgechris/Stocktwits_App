@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
 export default function TweetItem(props) {
   const classes = useStyles();
   const { name, avatar, tweet, timestamp } = props;
+  const time = new Date(timestamp).toLocaleTimeString();
+  const date = new Date(timestamp).toLocaleDateString();
+
+  console.log(name);
 
   return (
     <div>
@@ -37,7 +41,7 @@ export default function TweetItem(props) {
                 className={classes.inline}
                 color="textPrimary"
               >
-                <b>{name}</b>
+                {name}
               </Typography>
               <Typography
                 component="span"
@@ -45,13 +49,16 @@ export default function TweetItem(props) {
                 className={classes.inline}
                 color="textPrimary"
               >
-                <b>{tweet}</b>
+                {" "}
+                {tweet}
               </Typography>
             </React.Fragment>
           }
         />
         <Typography variant="body2" >
-          {timestamp}
+          {date}
+          <br></br>
+          {time}
         </Typography>
       </ListItem>
       <Divider variant="inset" component="li" />

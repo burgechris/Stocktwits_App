@@ -12,8 +12,8 @@ export default function TweetList(props) {
         <List>
           <TweetItem 
             key={index}
-            avatar={tweet.avatar_url}
-            name={tweet.username}
+            avatar={tweet.user.avatar_url}
+            name={tweet.user.username}
             timestamp={tweet.created_at}
             tweet={tweet.body}
           />
