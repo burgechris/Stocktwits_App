@@ -37,7 +37,7 @@ export default function TweetItem(props) {
             <React.Fragment>
               <Typography
                 component="span"
-                variant="h6"
+                variant="body2"
                 className={classes.inline}
                 color="textPrimary"
               >
@@ -45,11 +45,11 @@ export default function TweetItem(props) {
               </Typography>
               <Typography
                 component="span"
-                variant="body2"
+                variant="body3"
                 className={classes.inline}
                 color="textPrimary"
               >
-                {" "}
+                {" -- "}
                 {tweet}
               </Typography>
             </React.Fragment>

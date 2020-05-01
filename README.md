@@ -15,19 +15,21 @@ _Your browser of choice_
 ### Installing
 
 - Open Terminal
-- Type: git clone https://github.com/burgechris/
+- Type: git clone https://github.com/burgechris/Stocktwits_App.git
 - Run: npm install
 - Run: npm start
 - Open your browser and navigate to http://localhost:3000/
 
-## Application Flow and Layout
+## Application Component Tree
 
-<img src="assets/images/TrailAppComponentChart.png"
+<img src="src/assets/Application Component Chart.png"
      alt="Application Component Tree"
      style="float: center" 
      height= "400" /> 
 
-<img src="assets/images/TrailAppUI.png"
+## Application Layout
+
+<img src="src/assets/Application Layout.png"
      alt="Application UI Diagram"
      style="float: center" 
      height= "400" />      
@@ -35,7 +37,8 @@ _Your browser of choice_
 ## Built With
 
 * [Javascript](https://javascript.info/) - The primary language used
-* [React-Native](https://facebook.github.io/react-native/) - The application library used
+* [React-Native](https://reactjs.org/) - The JavaScript library used
+* [Material UI](https://material-ui.com/) - React UI Components
 
 
 ## Authors
