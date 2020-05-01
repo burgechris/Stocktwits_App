@@ -43,7 +43,9 @@ _Your browser of choice_
 ## Assignment Requirements
 * Allow the user to input a US stock symbol or several symbols (eg: AAPL, BABA, BAC, etc…)
 * Pull tweets from StockTwits that mention this symbol (stock symbols usually have a $ before them, like: $AAPL, $BABA, etc…)
+  - Completed
 * Display the latest matching tweets. How you display them is up to you.
+  - Completed
 * When a new tweet comes in, it should automatically be added without having to refresh the page.
   - I did not get to this objective. I would have used the useInterval hook to automatically fetch new tweets every 10 seconds, based on the symbol search criteria.
 * The user should be able to later add/remove symbols as well. If a user deletes a symbol, the matching tweets should also disappear.
