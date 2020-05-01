@@ -40,6 +40,16 @@ _Your browser of choice_
 * [React-Native](https://reactjs.org/) - The JavaScript library used
 * [Material UI](https://material-ui.com/) - React UI Components
 
+## Assignment Requirements
+* Allow the user to input a US stock symbol or several symbols (eg: AAPL, BABA, BAC, etc…)
+* Pull tweets from StockTwits that mention this symbol (stock symbols usually have a $ before them, like: $AAPL, $BABA, etc…)
+* Display the latest matching tweets. How you display them is up to you.
+* When a new tweet comes in, it should automatically be added without having to refresh the page.
+  - I did not get to this objective. I would have used the useInterval hook to automatically fetch new tweets every 10 seconds, based on the symbol search criteria.
+* The user should be able to later add/remove symbols as well. If a user deletes a symbol, the matching tweets should also disappear.
+  - I did not complete this objective. I was thinking I would display an icon for each symbol searched. If you searched a new symbol, it would add the icon to the top of the page. If you clicked the 'x' on the icon, it would disappear taking all the corresponding tweets with it using a filter method.
+* The number of tweets for a given symbol needs to be represented.
+
 
 ## Authors
 
